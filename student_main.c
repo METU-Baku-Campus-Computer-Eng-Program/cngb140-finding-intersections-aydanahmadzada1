@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     int n1, n2, i, j, k;
@@ -30,7 +31,7 @@ int main() {
         for(j = 0; j < n2; j++) {
             if(set1[i] == set2[j]) {
                 flag = 1;
-                for(int k = 0; k<count; k++){
+                for(k = 0; k<count; k++){
                     if (intersection[k] == set1[i]){
                         flag = 0;
                         break;
@@ -46,7 +47,6 @@ int main() {
             
         }
     }
-    
     //----------------------------------------------------------------//
     for(i = 0; i < count; i++) {
         printf("%d ", intersection[i]);
