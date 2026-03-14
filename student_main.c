@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     int n1, n2, i, j, k;
@@ -25,9 +26,36 @@ int main() {
          3. Store the common numbers in the 'intersection' array.
     */
     //----------------------------------------------------------------//
-    {
+    for(i = 0; i < n1; i++) {
+        int flag = 0;
+        for(j = 0; j < n2; j++) {
+            if(set1[i] == set2[j]) {
+                flag = 1;
+                for(k = 0; k<count; k++){
+                    if (intersection[k] == set1[i]){
+                        flag = 0;
+                        break;
+                    }
+                }
+                break;
 
+            }
+        }
+        if (flag == 1){
+            intersection[count] = set1[i];
+            count++;
+            
+        }
     }
+    for(i = 0; i < count-1; i++) {
+    for(j = i+1; j < count; j++) {
+        if(intersection[i] > intersection[j]) {
+            int temp = intersection[i];
+            intersection[i] = intersection[j];
+            intersection[j] = temp;
+        }
+    }
+}
     //----------------------------------------------------------------//
     for(i = 0; i < count; i++) {
         printf("%d ", intersection[i]);
